@@ -80,7 +80,7 @@ def _main():
         qr = _generate_asset_qr(number)
         im_large.paste(qr, (2050, 10))
 
-        im_large.save(args.save / f'{i}.png')
+        im_large.save(args.save / f'{i}_large.png')
 
         # Generate small image
         im_small = Image.new('1', size_small, (1,))
