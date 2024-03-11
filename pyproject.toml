@@ -1,0 +1,17 @@
+[project]
+name = "ulab-asset-tag-generator"
+description = "Cooper Union uLab Asset Tag Generator"
+version = "0.0.1"
+readme = "README.md"
+
+dependencies = [
+    "qrcode[pil]",
+    "pillow"
+]
+
+[[project.authors]]
+name = "Gary Kim"
+email = "gary@garykim.dev"
+
+[project.scripts]
+ulab-asset-tag-generator = "ulab-asset-tag-generator.ulab-asset-tag-generator:main"
