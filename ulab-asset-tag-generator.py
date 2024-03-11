@@ -28,7 +28,7 @@ def _generate_asset_qr(asset_id: str) -> Image:
     qr = qrcode.QRCode(
         version=1,
         error_correction=qrcode.constants.ERROR_CORRECT_M,
-        box_size=30,
+        box_size=40,
         border=0,
     )
 
@@ -63,8 +63,8 @@ def _main():
     if not args.save.is_dir():
         raise Exception('Given path does not seem to be a directory')
 
-    unicode_font = ImageFont.truetype('LiberationSans-Regular.ttf', 227)
-    size = (35 * 96, 10 * 96)
+    unicode_font = ImageFont.truetype('LiberationSans-Bold.ttf', 300)
+    size = (32 * 96, 9 * 96)
 
     for i in range(args.tags_from, args.tags_to + 1):
         number = f'{i:05}'
@@ -72,10 +72,10 @@ def _main():
 
         d = ImageDraw.Draw(im)
 
-        d.text((7 * 96, 150), 'μLab Asset', font=unicode_font, fill=(0,))
-        d.text((7 * 96, 550), number, font=unicode_font, fill=(0,))
+        d.text((1 * 96, 75), 'μLab Asset', font=unicode_font, fill=(0,))
+        d.text((1 * 96, 475), number, font=unicode_font, fill=(0,))
         qr = _generate_asset_qr(number)
-        im.paste(qr, (2000, 150))
+        im.paste(qr, (2050, 10))
 
         im.save(args.save / f'{i}.png')
 

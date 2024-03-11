@@ -13,5 +13,3 @@ dependencies = [
 name = "Gary Kim"
 email = "gary@garykim.dev"
 
-[project.scripts]
-ulab-asset-tag-generator = "ulab-asset-tag-generator.ulab-asset-tag-generator:main"
