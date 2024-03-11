@@ -74,9 +74,9 @@ def _main():
 
         d_large = ImageDraw.Draw(im_large)
 
-        d_large.text((1 * 96, 75), 'EE μLab Asset', font=unicode_font_large,
+        d_large.text((1 * 96, 75), 'EE μLab', font=unicode_font_large,
                      fill=(0,))
-        d_large.text((1 * 96, 475), number, font=unicode_font_large, fill=(0,))
+        d_large.text((1 * 96, 475), f'Asset {number}', font=unicode_font_large, fill=(0,))
         qr = _generate_asset_qr(number)
         im_large.paste(qr, (2050, 10))
 
