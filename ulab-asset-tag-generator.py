@@ -16,6 +16,8 @@
 #  You should have received a copy of the GNU Affero General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+import sys
+
 import argparse
 import pathlib
 
@@ -49,8 +51,13 @@ def _main():
         '-t', '--tags-to', type=int, default='1'
     )
     parser.add_argument(
-        '-s', '--save', type=pathlib.Path, default=pathlib.Path('.')
+        '-s', '--save', type=pathlib.Path, default=pathlib.Path('.'),
+        help='Specify directory to save tags into'
     )
+
+    if len(sys.argv) == 1:
+        parser.print_usage(sys.stderr)
+        exit(0)
     args = parser.parse_args()
 
     # Some basic checks
@@ -76,7 +83,8 @@ def _main():
 
         d_large.text((1 * 96, 75), 'EE μLab', font=unicode_font_large,
                      fill=(0,))
-        d_large.text((1 * 96, 475), f'Asset {number}', font=unicode_font_large, fill=(0,))
+        d_large.text((1 * 96, 475), f'Asset {number}', font=unicode_font_large,
+                     fill=(0,))
         qr = _generate_asset_qr(number)
         im_large.paste(qr, (2050, 10))
 
